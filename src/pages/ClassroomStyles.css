@@ -1,0 +1,99 @@
+/* src/pages/ClassroomStyles.css */
+
+/* --- 1. LAYOUT PRINCIPAL DEL AULA --- */
+.classroom-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  z-index: 1000; /* Para que esté por encima de todo */
+  transition: transform 0.4s ease-in-out;
+}
+
+/* --- 2. BARRA LATERAL (SIDEBAR) --- */
+.classroom-sidebar {
+  width: 320px;
+  background-color: #111827; /* Gris muy oscuro */
+  color: #d1d5db; /* Texto gris claro */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.4s ease-in-out;
+}
+/* Ocultar la sidebar */
+.classroom-layout:not(.sidebar-visible) .classroom-sidebar {
+  margin-left: -320px;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-bottom: 1px solid #374151;
+}
+
+.sidebar-content {
+  overflow-y: auto; /* Permite scroll si hay muchas lecciones */
+  flex-grow: 1;
+  padding: 1rem 0;
+}
+
+.module-group { margin-bottom: 1.5rem; }
+.module-title { font-weight: 600; font-size: 0.9rem; padding: 0 1.5rem 0.8rem 1.5rem; color: #9ca3af; text-transform: uppercase; }
+.lessons-list { list-style: none; padding: 0; margin: 0; }
+.lesson-item {
+  display: flex; align-items: center; width: 100%; text-align: left; padding: 0.8rem 1.5rem; gap: 1rem;
+  background: transparent; border: none; color: inherit; cursor: pointer; border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+.lesson-item:hover { background-color: #1f2937; }
+.lesson-item.active { background-color: #374151; border-left-color: var(--color-primary-light); color: white; }
+
+.lesson-status-icon { font-size: 1rem; }
+.lesson-status-icon .completed { color: #25d366; /* Verde WhatsApp */ }
+.incomplete-circle { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #6b7280; }
+.lesson-name { flex-grow: 1; font-size: 0.95rem; }
+
+
+/* --- 3. CONTENIDO PRINCIPAL (EL VIDEO) --- */
+.classroom-main-content {
+  flex-grow: 1; /* ¡¡Esta línea es clave para el layout!! */
+  position: relative; /* Contexto para el overlay y el video */
+  overflow: hidden;
+  background: #000;
+}
+
+/* El contenedor del video, siempre 100% */
+.video-background-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.video-player-container { 
+  position:relative;
+   width: 100%; 
+   height: 100%; 
+ }
+.video-player-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-placeholder-message { /*... estilos de la respuesta anterior, están bien ... */ }
+
+
+/* --- 4. SOLUCIÓN AL PROBLEMA DE CLICS --- */
+.classroom-overlay-gradient {
+  /* ... estilos de la respuesta anterior, están bien ... */
+}
+
+/* El contenedor de controles es INVISIBLE a los clics */
+.classroom-controls-container {
+  pointer-events: none; 
+  /* ... resto de estilos de la respuesta anterior, están bien ... */
+}
+/* PERO sus hijos (los botones) SÍ pueden recibir clics */
+.classroom-controls-container > * {
+  pointer-events: auto;
+}
+
+/* (El resto del CSS del classroom que te dí en la respuesta anterior es correcto) */
+.classroom-header, .classroom-footer, .sidebar-toggle-button, .navigation-buttons {
+  /* ... estilos de la respuesta anterior, están bien ... */
+}
