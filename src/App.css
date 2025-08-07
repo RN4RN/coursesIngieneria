@@ -1,0 +1,2855 @@
+/* --- frontend --- */
+
+body {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #222;
+}
+
+.app-container {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 5px auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(30,60,114,0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 1%;
+  border: 2px solid #e5e7eb;
+  min-height: 100vh;
+  background: #f4f6fa;
+}
+
+.header {
+  background: linear-gradient(90deg, #1abc9c 0%, #2d3e50 100%);
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 32px 0 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin-bottom: 24px;
+}
+
+.header::before {
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  border-radius: 12px;
+  margin-right: 16px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 0;
+  background: #f3f6fb;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(42,82,152,0.08);
+  padding: 32px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 32px rgba(42,82,152,0.16);
+}
+
+.button {
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(42,82,152,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+  box-shadow: 0 4px 16px rgba(42,82,152,0.18);
+}
+
+.footer {
+  background: #f1f3f6;
+  color: #888;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 1rem;
+  border-top: 1px solid #eaeaea;
+  letter-spacing: 1px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 18px 40px;
+  border-bottom: 2px solid #eaeaea;
+  box-shadow: 0 2px 8px rgba(42,82,152,0.05);
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2a5298;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #2a5298;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+}
+
+.navbar-link.login {
+  background: #f3f6fb;
+  color: #1e3c72;
+  border: 1px solid #e5e7eb;
+  transition: background 0.2s, color 0.2s;
+  
+}
+
+.navbar-link.login:hover {
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+  border: none;
+  
+}
+
+.navbar-button {
+  text-decoration: none !important;
+    background: #f3f6fb;
+  color: #1e3c72;
+  
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.1rem;
+ 
+  border-radius: 6px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+}
+.navbar-button:hover,
+.navbar-button.active {
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+}
+.navbar-button:hover {
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+  border: none;
+  
+}
+/* Diseño para menú de navegación de CursosOnline */
+.menu-cursosonline {
+    background: #1abc9c;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+}
+
+.menu-cursosonline a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+.menu-cursosonline a:hover {
+    color: #2d3e50;
+}
+
+/* Título principal */
+.titulo-cursosonline {
+    background: #2d3e50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2em;
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+  .header, .main-content {
+    padding: 20px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+  .navbar-links {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .navbar-link {
+    width: 100%;
+    text-align: left;
+  }
+}
+/* ================================================= */
+/* === ESTILOS MEJORADOS PARA LA PÁGINA DE INICIO === */
+/* ================================================= */
+
+/* Contenedor principal para evitar márgenes por defecto */
+.homepage-container {
+  width: 100%;
+}
+
+/* --- Hero Section de Ingeniería --- */
+.hero-section {
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f2937, #111827); /* Más oscuro y corporativo */
+  color: var(--color-white);
+  /* Ajuste para eliminar márgenes extra */
+  margin: -2rem -2rem 0 -2rem; 
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  max-width: 800px;
+  letter-spacing: -1.5px;
+  text-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  color:white;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 700px;
+  margin: 1rem auto 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+
+.hero-button { padding: 1rem 2.5rem !important; font-size: 1.2rem !important; font-weight: 700 !important; background: linear-gradient(45deg, var(--color-primary-light), #047857); border: none; border-radius: 50px; box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4), 0 0 15px rgba(255, 255, 255, 0.2) inset; display: flex !important ; align-items: center; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); text-decoration: none; color: white !important; }
+
+/* --- Animación de fondo (preservada) --- */
+.hero-bg-shapes span {
+  position: absolute;
+  bottom: -150px;
+  display: block;
+  background: rgba(255, 255, 255, 0.04);
+  animation: float 20s ease-in-out infinite;
+  z-index: 1;
+  border-radius: 8px;
+ 
+}
+.hero-bg-shapes span:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-delay: 2s; animation-duration: 17s; transform: rotate(45deg); }
+.hero-bg-shapes span:nth-child(2) { left: 20%; width: 40px; height: 40px; animation-delay: 1s; animation-duration: 22s; }
+.hero-bg-shapes span:nth-child(3) { left: 50%; width: 50px; height: 50px; animation-delay: 5s; animation-duration: 25s; }
+.hero-bg-shapes span:nth-child(4) { left: 75%; width: 120px; height: 120px; animation-delay: 0s; animation-duration: 20s; }
+.hero-bg-shapes span:nth-child(5) { left: 90%; width: 60px; height: 60px; animation-delay: 3s; animation-duration: 18s; transform: rotate(-30deg); }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(var(--initial-rotate, 0deg)); }
+  50% { transform: translateY(-100vh) rotate(calc(var(--initial-rotate, 0deg) + 180deg)); }
+  100% { transform: translateY(0) rotate(calc(var(--initial-rotate, 0deg) + 360deg)); }
+}
+
+/* --- Estructura de Sección --- */
+.engineering-section {
+  padding: 4rem 0;
+}
+.engineering-section-dark {
+  padding: 5rem 2rem;
+  background-color: var(--color-bg-dark);
+  margin: 2rem -2rem 0 -2rem; /* Expande al ancho completo */
+}
+
+.section-title-engineering {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+}
+.engineering-section-dark .section-title-engineering,
+.engineering-section-dark .section-subtitle-engineering {
+    color: var(--color-text-dark); /* Color más oscuro para fondo claro */
+}
+
+.section-subtitle-engineering {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Tarjetas de Características (rediseñadas) --- */
+.features-grid-engineering {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.feature-card-engineering {
+  background: var(--color-white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease-out;
+}
+.feature-card-engineering:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-dark);
+}
+.feature-card-engineering .feature-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+.feature-card-engineering .feature-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.feature-card-engineering .feature-description {
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* --- Botón Secundario --- */
+.button-secondary {
+  display: inline-block;
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-primary-dark);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease-in-out;
+}
+.button-secondary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+/* ========================================================= */
+/* === ESTILOS ÉPICOS ADICIONALES PARA LA PÁGINA DE INICIO === */
+/* ========================================================= */
+
+/* --- Ajustes al Hero Section --- */
+.hero-section.epic {
+  padding: 8rem 2rem 10rem 2rem; /* Mucho más alto */
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Espacio para el Avatar de Perfil */
+.hero-welcome-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 5px solid var(--color-primary-light);
+  background-color: rgba(255,255,255, 0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px; /* Tamaño del icono por defecto */
+  color: var(--color-bg-dark);
+  box-shadow: 0 0 30px rgba(20, 184, 166, 0.5);
+}
+.hero-welcome-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.hero-title.welcome-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Ligeramente más pequeño para el saludo */
+}
+
+/* --- Sección Logo Cloud (Tecnologías) --- */
+.logo-cloud-section {
+  padding: 3rem 2rem;
+  background-color: var(--color-bg-dark);
+  border-bottom: 1px solid #e5e7eb;
+}
+.logo-cloud-title {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-text-extra-light);
+  margin-bottom: 2rem;
+}
+.logo-cloud-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.logo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.logo-item:hover {
+  opacity: 1;
+}
+
+/* --- Sección de Testimonios --- */
+.testimonials-section {
+  padding: 5rem 2rem;
+  background: var(--color-white);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  border: 1px solid #e5e7eb;
+  position: relative;
+}
+.testimonial-quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 3rem !important;
+  color: var(--color-primary-light);
+  opacity: 0.2;
+}
+.testimonial-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-text-dark);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  position: relative; /* para que esté sobre el icono */
+  z-index: 2;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-primary-dark);
+}
+.testimonial-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.testimonial-role {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+
+/* --- Sección Final de Llamada a la Acción (CTA) --- */
+.final-cta-section {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary));
+  color: var(--color-white);
+  margin-top: 4rem;
+}
+.final-cta-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+}
+.final-cta-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 1rem auto 2.5rem;
+  opacity: 0.9;
+}
+.final-cta-button {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.final-cta-button:hover {
+  transform: scale(1.15) !important;
+}
+
+/* --- Otros Ajustes --- */
+.mt-20 {
+  margin-top: 5rem; /* 80px */
+}
+/* ============================================== */
+/* === AJUSTES DE DISEÑO PARA LA BARRA DE NAVEGACIÓN === */
+/* ============================================== */
+
+/* Aseguramos que el contenedor principal separe sus hijos */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* <- La clave: empuja el logo a la izq y el resto a la der */
+}
+
+/* El nuevo contenedor para los elementos de la derecha */
+.navbar-right-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Espacio entre el bloque de links y el bloque de perfil/acciones */
+}
+
+/* Los links ya deberían estar bien estilados, solo aseguramos su alineación */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espacio entre cada link: Inicio, Cursos, etc. */
+}
+
+/* El contenedor para el perfil, avatar, etc. */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espacio entre la foto de perfil y el botón de salir */
+}
+
+/* Estilos específicos para el link del perfil */
+.navbar-profile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-text-dark);
+  padding: 4px; /* Un poco de padding para el hover */
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+.navbar-profile-link:hover {
+  border-color: var(--color-primary-dark);
+}
+
+/* El contenedor del avatar (foto o icono) */
+.navbar-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden; /* Esencial para que la imagen no se salga del círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-extra-light);
+  border: 2px solid var(--color-text-extra-light);
+  font-size: 40px; /* Para el ícono por defecto */
+  transition: border-color 0.2s ease-in-out;
+}
+.navbar-profile-link:hover .navbar-avatar {
+  border-color: transparent;
+}
+.navbar-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
+}
+
+/* Botón de Logout estilizado solo como icono */
+.navbar-logout-button {
+  background-color: transparent;
+  color: var(--color-text-light);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.navbar-logout-button:hover {
+  background-color: var(--color-bg-dark);
+  color: #ef4444; /* Rojo para la acción de salir */
+}
+/* ============================================== */
+/* ===         ESTILOS DEL FOOTER MEJORADO        === */
+/* ============================================== */
+
+.site-footer {
+  background-color: #1f2937; /* Un gris muy oscuro, casi negro */
+  color: #a0aec0; /* Un gris claro para el texto, fácil de leer */
+  padding: 4rem 2rem 0 2rem;
+  border-top: 4px solid var(--color-primary-dark);
+}
+
+.footer-content {
+  display: grid;
+  /* Crea columnas responsivas automágicamente */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #4a5568; /* Línea separadora sutil */
+}
+
+.footer-column-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Estilos para la primera columna de la marca */
+.footer-brand-info .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+.footer-description {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos para los iconos de redes sociales */
+.footer-social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4a5568; /* Fondo gris oscuro */
+  color: var(--color-white);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.social-icon-link:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 15px rgba(20, 184, 166, 0.2);
+}
+
+/* Estilos para las listas de links */
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.footer-link-list a {
+  color: #a0aec0; /* Mismo color que el texto base */
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.footer-link-list a:hover {
+  color: var(--color-primary-light);
+  padding-left: 5px; /* Efecto sutil al pasar el mouse */
+}
+
+
+/* La barra inferior con el copyright */
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Para que se apile en pantallas pequeñas */
+  gap: 1rem;
+  padding: 1.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: #718096; /* Un gris aún más sutil */
+}
+
+/*esto es otro stylo*/
+/* ============================================== */
+/* ===     MEJORAS FINALES AL HERO Y BOTONES      === */
+/* ============================================== */
+
+/* 1. ESTILOS PARA LA IMAGEN DE FONDO EN EL HERO */
+/* ----------------------------------------------- */
+
+/* El Hero Section para el usuario logueado tendrá una imagen de fondo */
+.hero-section.logged-in {
+  background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Esta es la capa oscura que va sobre la imagen para que el texto resalte */
+.hero-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* El degradado oscurece la imagen, especialmente abajo */
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.9) 10%, rgba(17, 24, 39, 0.6) 100%);
+  z-index: 1; /* Por debajo de las formas y el contenido */
+}
+
+/* Hacemos que el contenido y las formas estén por encima del overlay y la imagen */
+.hero-bg-shapes {
+  z-index: 2;
+}
+.hero-content {
+  z-index: 3;
+}
+
+/* 2. FORZAR TEXTO BLANCO PARA LA VISTA DE BIENVENIDA */
+/* ---------------------------------------------------- */
+.hero-section.logged-in .hero-content {
+  color: #fff;
+}
+.hero-section.logged-in .hero-subtitle {
+  color: rgba(255, 255, 255, 0.85); /* Un blanco un poco menos intenso para el subtítulo */
+}
+
+
+/* 3. MEJORAS AL BOTÓN "CONTINUAR APRENDIENDO" */
+/* --------------------------------------------- */
+.hero-button.special-action {
+  padding: 1rem 2.5rem !important;
+  font-size: 1.2rem !important; /* Más grande para destacar */
+  font-weight: 700 !important;
+  background: linear-gradient(45deg, var(--color-primary-light), #047857); /* Gradiente más intenso */
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4), 0 0 15px rgba(255, 255, 255, 0.2) inset;
+  display: flex !important;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+  color: white !important;
+}
+
+.hero-button.special-action:hover {
+  transform: translateY(-5px) scale(1.05) !important;
+  box-shadow: 0 15px 30px rgba(20, 184, 166, 0.5), 0 0 20px rgba(255, 255, 255, 0.3) inset;
+}
+
+/* 4. MEJORAS AL BOTÓN FINAL "DESCUBRIR MÁS CURSOS" */
+/* -------------------------------------------------- */
+.final-cta-button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background: var(--color-white) !important;
+  color: var(--color-primary-dark) !important;
+  padding: 1.2rem 3rem !important;
+  border: 3px solid transparent;
+  transform: scale(1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.final-cta-button:hover {
+  background: transparent !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-white);
+  box-shadow: none;
+  transform: scale(1.03) !important;
+}
+/*Diseño de curso*/
+/* ============================================== */
+/* ===   ESTILOS PARA LA PÁGINA DE CURSOS (V2)    === */
+/* ============================================== */
+
+/* Contenedor general de la página */
+.courses-page-container {
+  width: 100%;
+}
+
+/* Encabezado de la página */
+.courses-page-header {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--color-bg-dark);
+  border-bottom: 1px solid #e5e7eb;
+  margin: -2rem -2rem 0 -2rem; /* Se expande a los bordes */
+}
+.courses-page-header h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--color-text-dark);
+  font-weight: 800;
+}
+.courses-page-header .header-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-top: 0.75rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* El contenedor principal del contenido (filtros y resultados) */
+.courses-content-wrapper {
+  max-width: 1400px; /* Un poco más ancho para la cuadrícula */
+  margin: 3rem auto 0 auto;
+  padding: 0 2rem;
+   position: relative; 
+}
+
+/* Barra de Filtros rediseñada */
+.filter-bar {
+  position: sticky;
+  top: 80px; /* Justo debajo del navbar */
+  z-index: 50;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+/* Buscador */
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+.search-input {
+  width: 95%;
+  padding: 0.8rem 1rem 0.8rem 3rem; /* Espacio para el icono */
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+/* Botones de Categoría */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap; /* Para que se apile en pantallas pequeñas */
+  gap: 0.75rem;
+  position: relative;
+}
+.category-filter-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  position: relative; /* para el layoutId de framer-motion */
+  z-index: 2; /* encima de la píldora animada */
+  transition: color 0.3s ease;
+}
+.category-filter-btn.active {
+  color: var(--color-white);
+}
+.category-filter-btn:not(.active):hover {
+    color: var(--color-primary-dark);
+    background-color: var(--color-bg-dark);
+}
+
+/* Píldora animada para el filtro activo */
+.active-filter-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--color-primary-dark), var(--color-secondary));
+  border-radius: 9999px;
+  z-index: 1; /* por debajo del texto del botón */
+  box-shadow: 0 4px 10px rgba(13, 148, 136, 0.3);
+}
+
+/* Indicador de resultados */
+.results-info {
+  margin: 1.5rem 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* Grid de los Cursos */
+.courses-grid-wrapper {
+    min-height: 400px; /* Para que no salte al estar cargando */
+}
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+.course-card-wrapper-motion {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.course-card-wrapper-motion:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* Estados Vacíos/Error */
+.empty-state-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius);
+}
+.empty-state-message.error {
+    background-color: #fef2f2; /* Rojo muy claro */
+    color: #b91c1c; /* Texto rojo oscuro */
+}
+.empty-state-message.error p {
+    color: #dc2626;
+}
+/*Admin diseño web*/
+/* ============================================== */
+/* ===       ESTILOS DEL PANEL DE ADMIN         === */
+/* ============================================== */
+
+/* El layout principal de 2 columnas */
+.admin-dashboard-layout {
+  display: flex;
+  min-height: calc(100vh - 80px); /* 100vh menos la altura del navbar aprox. */
+  background-color: #f9fafb; /* Fondo gris muy claro para el área de contenido */
+  margin: -2rem -2rem; /* Se expande para quitar los paddings del layout principal */
+}
+
+/* 1. Barra Lateral (Sidebar) */
+/* ------------------------- */
+.admin-sidebar {
+  width: 260px;
+  flex-shrink: 0; /* Evita que la sidebar se encoja */
+  background-color: var(--color-white);
+  border-right: 1px solid #e5e7eb;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 0 1rem 1rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+.sidebar-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-extra-light);
+  letter-spacing: 1.5px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-text-light);
+  transition: all 0.2s ease;
+  position: relative;
+}
+.sidebar-nav-link:hover:not(.active) {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* Link Activo en la Sidebar */
+.sidebar-nav-link.active {
+  background: linear-gradient(90deg, rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1));
+  color: var(--color-primary-dark);
+}
+.sidebar-nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background-color: var(--color-primary-dark);
+  border-radius: 0 4px 4px 0;
+}
+
+
+/* 2. Área de Contenido Principal */
+/* ----------------------------- */
+.admin-main-content {
+  flex-grow: 1;
+  padding: 2.5rem;
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+}
+
+.dashboard-section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Dashboard HomePage (Stats y Acciones) */
+/* --------------------------------------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.stat-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card-icon {
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+    color: var(--color-primary-dark);
+    background-color: rgba(20, 184, 166, 0.1);
+}
+.stat-card-info {
+    display: flex;
+    flex-direction: column;
+}
+.stat-card-title {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+.stat-card-value {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+.stat-card-link {
+    margin-left: auto;
+    font-size: 1.5rem;
+    color: #d1d5db;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.stat-card:hover .stat-card-link {
+    color: var(--color-primary-dark);
+    transform: translateX(5px);
+}
+
+/* Acciones Rápidas */
+.quick-actions-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.quick-action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--color-white);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: all 0.2s ease;
+}
+.quick-action-button:hover {
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+/*Manejo de cursos*/
+/* ============================================== */
+/* === ESTILOS PARA GESTIÓN DE CURSOS (CRUD)    === */
+/* ============================================== */
+
+/* Header de la página de gestión */
+.page-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.add-new-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(45deg, var(--color-primary-dark), var(--color-secondary));
+    color: var(--color-white);
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+.add-new-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* --- Formulario de Curso Profesional --- */
+.form-container {
+    background: var(--color-white);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: var(--color-bg-dark);
+    border-bottom: 1px solid #e5e7eb;
+}
+.form-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.close-form-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+.close-form-btn:hover {
+    background: #e5e7eb;
+    color: #dc2626; /* rojo */
+}
+.form-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.form-section {
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+.form-section legend {
+    font-weight: 600;
+    padding: 0 0.5rem;
+    margin-left: 1rem;
+    color: var(--color-text-dark);
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group.col-span-2 { grid-column: span 2; }
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+}
+.form-group input, .form-group textarea {
+    width: 95%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    transition: all 0.2s ease-in-out;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+/* File input estilizado */
+.file-input-wrapper { display: flex; align-items: center; gap: 1rem; }
+.file-input-wrapper input[type="file"] { display: none; }
+.file-input-label {
+    background-color: var(--color-bg-dark);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+}
+.file-input-label:hover { background-color: #e5e7eb; }
+.image-preview {
+    width: 80px; height: 80px; object-fit: cover;
+    border-radius: 8px; border: 2px solid #e5e7eb;
+}
+
+/* Sección de Módulos y Lecciones */
+.module-container { border: 1px dashed #d1d5db; border-radius: 8px; margin-bottom: 1rem; }
+.module-header { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background-color: #f9fafb; border-bottom: 1px dashed #d1d5db;}
+.module-title-input { font-weight: 600; border: none; background: transparent; flex-grow: 1; }
+.module-title-input:focus { outline: none; }
+.remove-item-btn { background: #fef2f2; color: #dc2626; border: none; border-radius: 50%; width: 28px; height: 28px; display: grid; place-items: center; cursor: pointer; transition: background 0.2s; }
+.remove-item-btn:hover { background: #fee2e2; }
+.remove-item-btn.small { width: 24px; height: 24px; font-size: 0.8rem; }
+.lessons-container { padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.lesson-row { display: flex; align-items: center; gap: 0.75rem; }
+.lesson-icon { color: var(--color-text-extra-light); }
+.lesson-input { flex-grow: 1; font-size: 0.9rem; padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 6px;}
+.add-lesson-btn, .add-module-btn { display: flex; align-items: center; gap: 0.5rem; background: none; border: 1px dashed #d1d5db; color: var(--color-primary-dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+.add-lesson-btn { margin-left: 2rem; align-self: flex-start; }
+.add-lesson-btn:hover, .add-module-btn:hover { background: #f0fdfa; border-color: var(--color-primary-dark); }
+
+/* Footer del Formulario */
+.form-footer { display: flex; justify-content: flex-end; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; background: #f9fafb; }
+.form-button { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+.form-button.primary { background-color: var(--color-primary-dark); color: var(--color-white); }
+.form-button.primary:hover:not(:disabled) { background-color: var(--color-primary-light); }
+.form-button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+.form-button.secondary { background-color: #e5e7eb; color: var(--color-text-dark); }
+.form-button.secondary:hover { background-color: #d1d5db; }
+
+
+/* --- Tabla de Cursos Mejorada --- */
+.course-table-image { width: 120px; height: 70px; border-radius: 8px; background-size: cover; background-position: center; flex-shrink: 0; }
+.category-badge { display: inline-block; background-color: #e0e7ff; color: #4338ca; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 500; }
+/*otro codigo de courseDetailPage*/
+/* ============================================== */
+/* ===   ESTILOS PÁGINA DETALLE DE CURSO (V2)   === */
+/* ============================================== */
+
+/* Estados de Carga/Error específicos de la página */
+
+
+/* ==========================================================================
+   TEMA CLARO - VARIABLES DE COLOR Y ESTILOS GLOBALES
+   ========================================================================== */
+/* ==========================================================================
+   TEMA CLARO - VARIABLES Y GLOBALES
+   ========================================================================== */
+:root {
+  --color-primary: #5a48e3;
+  --color-primary-dark: #473aa4;
+  --color-background: #F7F7FA;
+  --color-surface: #FFFFFF;
+  --color-text: #0d1117;
+  --color-text-secondary: #57606a;
+  --color-border: #d0d7de;
+  --color-success: #1a7f37;
+  --color-rating: #f0ad4e;
+  --color-danger: #d73a49;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+body { background-color: var(--color-background); color: var(--color-text); font-family: var(--font-sans); overflow-x: hidden; }
+.course-detail-page { width: 100%; }
+
+/* ==========================================================================
+   CABECERA DEL CURSO
+   ========================================================================== */
+.course-hero-header { position: relative; min-height: 50vh; background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 4rem 2rem; color: #fff; }
+.hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 100%); z-index: 1; }
+.hero-content-detail { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; }
+.category-tag { background-color: var(--color-primary); color: white; padding: 6px 14px; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 1rem; }
+.course-detail-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.2; text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); }
+.course-detail-description { font-size: clamp(1rem, 2.5vw, 1.15rem); max-width: 65ch; color: #f0f0f0; margin-bottom: 1.5rem; line-height: 1.65; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+.course-meta-info { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2.5rem; font-size: 0.95rem; }
+.course-author-container, .rating { display: flex; align-items: center; gap: 0.6rem; }
+.created-by-label { color: #d0d0d0; }
+.instructor-name-link { color: #fff; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+.instructor-name-link:hover { color: var(--color-primary); text-decoration: underline; }
+.rating svg { color: var(--color-rating); }
+.rating span { color: #d0d0d0; font-weight: 500; }
+
+/* ==========================================================================
+   LAYOUT Y CONTENIDO PRINCIPAL
+   ========================================================================== */
+.course-detail-main-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 3rem; width: 100%; max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+.course-content-column { min-width: 0; display: flex; flex-direction: column; gap: 2.5rem; }
+.content-box { background-color: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem 2.5rem; border-radius: 12px; }
+.content-box-title, .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--color-text); position: relative; padding-bottom: 0.75rem; }
+.content-box-title::after, .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--color-primary); border-radius: 2px; }
+.learning-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.learning-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 1rem; line-height: 1.5; color: #343a40; }
+.learning-list .check-icon { color: var(--color-success); margin-top: 5px; flex-shrink: 0; }
+
+/* ==========================================================================
+   DISEÑO DE MÓDULOS (ACORDEÓN)
+   ========================================================================== */
+.course-curriculum { width: 100%; }
+.course-content-summary { display: flex; gap: 1.5rem; color: var(--color-text-secondary); margin-bottom: 1.5rem; font-weight: 500; background-color: var(--color-surface); padding: 1rem 1.5rem; border: 1px solid var(--color-border); border-radius: 8px; }
+.course-content-summary span { display: flex; align-items: center; gap: 0.75rem; }
+.accordion { display: flex; flex-direction: column; gap: 1rem; }
+.accordion > div { margin-bottom: 0; }
+.accordion-item-header { background-color: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; font-size: 1.15rem; font-weight: 600; color: var(--color-text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.accordion-item-header:hover { border-color: var(--color-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.accordion-item-header.active { border-color: var(--color-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); color: var(--color-primary); }
+.lessons-list { list-style: none; padding: 1rem; margin: 0.5rem 0 0 0; background-color: #f7f7fa; border-radius: 8px; border: 1px solid #e1e4e8; }
+.lessons-list li { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; color: #3d4651; border-radius: 4px; transition: all 0.2s ease; }
+.lessons-list li:hover { background-color: var(--color-primary); color: white; padding-left: 1.5rem; }
+.lesson-icon { color: var(--color-text-secondary); }
+.lessons-list li:hover .lesson-icon { color: white; }
+
+/* ==========================================================================
+   SIDEBAR DE COMPRA CON DESCUENTO
+   ========================================================================== */
+.sidebar-sticky-box { position: sticky; top: 2rem; background-color: var(--color-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+.purchase-box { padding: 1.5rem 2rem; }
+.price-container { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+.current-price { font-size: 2.5rem; font-weight: 800; color: var(--color-text); }
+.original-price { font-size: 1.5rem; font-weight: 400; color: var(--color-text-secondary); text-decoration: line-through; }
+.discount-info { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.discount-percentage { background-color: var(--color-danger); color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+.discount-timer { color: var(--color-danger); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; padding: 0.5rem; background: rgba(215, 58, 73, 0.1); border-radius: 4px; }
+.purchase-actions { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+.action-button { width: 100%; padding: 1rem; font-size: 1.05rem; font-weight: bold; border-radius: 5px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 0.75rem; transition: all 0.2s ease-in-out; border: 2px solid transparent; }
+.action-button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.action-button.primary { background-color: var(--color-primary); color: white; }
+.action-button.primary:hover { background-color: var(--color-primary-dark); }
+.action-button.secondary { background-color: transparent; color: var(--color-primary); border-color: var(--color-primary); }
+.action-button.secondary:hover { background-color: var(--color-primary); color: white; }
+.course-includes { border-top: 1px solid var(--color-border); padding-top: 1.5rem; }
+.includes-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-text); }
+.course-includes ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.course-includes li { display: flex; align-items: center; gap: 0.75rem; color: var(--color-text-secondary); }
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 992px) { .course-detail-main-layout { grid-template-columns: 1fr; margin-top: 0; padding-top: 2rem; gap: 2rem; } .course-sidebar { grid-row: 1; margin-bottom: 2rem; } .course-hero-header { min-height: auto; padding: 3rem 1.5rem 4rem 1.5rem; } }
+@media (max-width: 576px) { .course-detail-main-layout, .hero-content-detail { padding-left: 1rem; padding-right: 1rem; } .content-box, .purchase-box { padding: 1.5rem; } }
+
+
+
+   
+/*codigo de components y courseCard.jsx*/
+/* ============================================== */
+/* ===      ESTILOS PARA COURSE CARD (V2)       === */
+/* ============================================== */
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.course-card-image-wrapper {
+  width: 100%;
+  padding-top: 56.25%; /* Aspect-ratio 16:9 */
+  position: relative;
+  background-color: #f3f4f6;
+}
+
+.course-card-image {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-card-image {
+    transform: scale(1.05);
+}
+
+.course-card-category-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(59, 130, 246, 0.9);
+    color: var(--color-white);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2; /* Para que esté sobre la imagen */
+    color:white;
+}
+
+.course-card-content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: black;
+}
+
+.course-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 44px; /* Aprox. 2 líneas */
+  transition: color 0.2s ease;
+}
+.course-card:hover .course-card-title {
+    color: var(--color-primary-dark);
+}
+
+.course-card-instructor {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  color:#202020cc;
+}
+
+.course-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.25rem;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 1rem;
+}
+
+.course-card-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.course-card-details-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  transition: all 0.2s ease;
+}
+.course-card:hover .course-card-details-link {
+    color: var(--color-primary-dark);
+    transform: translateX(4px); /* Pequeño empuje al pasar el mouse */
+}
+/*Mis cursos estylos*/
+/* ============================================== */
+/* ===   ESTILOS COMPLETOS PÁGINA "MIS CURSOS"   === */
+/* ============================================== */
+
+/* --- Contenedor y Header de Página --- */
+.my-courses-container { padding: 1rem 0; }
+.page-header-my-courses {
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;
+    gap: 1.5rem; padding-bottom: 2rem; margin-bottom: 2rem; border-bottom: 1px solid #e5e7eb;
+}
+.page-header-my-courses p { color: var(--color-text-light); max-width: 600px; }
+
+
+/* --- Esqueleto de Carga (Placeholder) --- */
+.skeleton { animation: pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite; background-color: #e5e7eb; border-radius: 8px; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
+
+.skeleton-course-card { background-color: var(--color-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius); overflow: hidden; }
+.skeleton-image { height: 168px; border-radius: 0; }
+.skeleton-content { padding: 1.25rem; }
+.skeleton-title { height: 24px; margin-bottom: 0.5rem; width: 80%; }
+.skeleton-instructor { height: 16px; width: 50%; margin-bottom: 1.5rem; }
+.skeleton-progress { height: 8px; width: 100%; margin-top: 1rem; }
+.skeleton-button { height: 44px; margin-top: 1.5rem; }
+
+
+/* --- Tarjeta de Curso del Usuario (`MyCourseCard`) --- */
+.my-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+.my-course-card {
+    display: flex; flex-direction: column; background-color: var(--color-white); border-radius: var(--border-radius);
+    border: 1px solid #e5e7eb; overflow: hidden; box-shadow: var(--shadow-sm); height: 100%;
+}
+.my-course-card-image { padding-top: 56.25%; background-size: cover; background-position: center; border-bottom: 1px solid #e5e7eb; background-color: #f3f4f6; }
+
+.my-course-card.completed { position: relative; border-color: #10b981; }
+.completed-badge {
+    position: absolute; top: -1px; left: -1px; background: linear-gradient(45deg, #10b981, #34d399); color: white;
+    padding: 0.3rem 1rem 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 700; border-radius: 15px 0 15px 0; z-index: 3;
+    display: flex; align-items: center; gap: 0.4rem; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+}
+.my-course-card-content { padding: 1.25rem; flex-grow: 1; display: flex; flex-direction: column; }
+.my-course-card-title { font-size: 1.2rem; font-weight: 700; color: var(--color-text-dark); margin-bottom: 0.25rem; }
+.my-course-card-instructor { font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 1.25rem; }
+
+
+/* --- Barra de Progreso y Esqueleto --- */
+.progress-bar-container { width: 100%; height: 8px; background-color: #e5e7eb; border-radius: 9999px; overflow: hidden; margin-top: auto; }
+.progress-bar-container.loading { background-color: transparent; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-light)); border-radius: 9999px; }
+.progress-label { font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem; align-self: flex-end; }
+.skeleton-progress-bar { width: 100%; height: 8px; border-radius: 9999px; animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; background-color: #e5e7eb; }
+
+/* --- Footer de la Tarjeta --- */
+.my-course-card-footer { padding: 1rem 1.25rem; background-color: #f9fafb; border-top: 1px solid #e5e7eb; }
+.my-course-card-button {
+    display: flex; width: 100%; justify-content: center; align-items: center; gap: 0.75rem; padding: 0.75rem; text-decoration: none;
+    background-color: var(--color-primary-dark); color: var(--color-white); font-weight: 600; border-radius: 10px;
+    border: none; cursor: pointer; transition: all 0.2s ease;
+}
+.my-course-card-button:hover { background-color: var(--color-secondary); transform: scale(1.02); box-shadow: var(--shadow-md); }
+
+/* --- Filtros --- */
+.my-courses-filter-group { display: flex; background-color: var(--color-bg-dark); border-radius: 10px; padding: 0.3rem; border: 1px solid #e5e7eb; }
+.my-courses-filter-group button {
+    background: transparent; border: none; padding: 0.6rem 1rem; font-weight: 600;
+    color: var(--color-text-light); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;
+}
+.my-courses-filter-group button.active { background-color: var(--color-white); color: var(--color-primary-dark); box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+
+/* --- Estado Vacío --- */
+.empty-state-my-courses { min-height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--color-bg-light); padding: 4rem 2rem; border-radius: var(--border-radius); }
+.empty-state-icon {
+    width: 80px; height: 80px; display: grid; place-items: center; background-color: var(--color-white);
+    border-radius: 50%; color: var(--color-primary-dark); font-size: 2.5rem; box-shadow: var(--shadow-md); margin-bottom: 2rem;
+}
+.empty-state-my-courses h2 { font-size: 1.5rem; font-weight: 700; }
+.empty-state-my-courses p { color: var(--color-text-light); max-width: 400px; margin: 0.5rem 0 1.5rem 0; }
+/*Stylos de clasroom main*/
+/* ============================================== */
+/* ===   ESTILOS PARA AULA VIRTUAL (Classroom)  === */
+/* ============================================== */
+
+.classroom-main-content {
+  position: relative; /* Contexto de posicionamiento para los elementos superpuestos */
+  flex: 1; /* Ocupa el espacio restante */
+  background-color: #000; /* Fondo negro por si el video no carga */
+  display: flex; /* Para centrar el placeholder si es necesario */
+  overflow: hidden; /* Muy importante para evitar barras de scroll inesperadas */
+}
+
+/* --- Video y Capa de Oscurecimiento --- */
+.video-background-wrapper {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+.video-background-wrapper iframe { /* Si tu VideoPlayer usa un iframe */
+  width: 97%;
+  height: 97%;
+   margin: 20px 20px 20px 20px;
+   position: absolute;
+}
+.video-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    color: #6b7280; text-align: center;
+}
+
+.classroom-overlay-gradient {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; /* Permite hacer clic a través del degradado */
+  /* Degradado sutil en la parte superior e inferior para legibilidad */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.7) 100%);
+}
+
+/* --- Contenedor General de Controles --- */
+.classroom-controls-container {
+  position: relative; /* se pone sobre el video y el degradado */
+  z-index: 10;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Header arriba, Footer abajo */
+  padding: 1.5rem 2rem;
+  color: white;
+}
+/* Ocultar controles al pasar el mouse */
+.classroom-main-content:hover .classroom-header,
+.classroom-main-content:hover .classroom-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- Header (Botón Menú y Título del Curso) --- */
+.classroom-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0; /* Oculto por defecto */
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.sidebar-toggle-button {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sidebar-toggle-button:hover {
+  background: rgba(51, 65, 85, 0.9);
+  transform: scale(1.1);
+}
+.course-title-header span {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+.course-title-header h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* --- Footer (Título de Lección y Navegación) --- */
+.classroom-footer {
+  opacity: 0; /* Oculto por defecto */
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.lesson-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsivo */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  transition: all 0.2s ease;
+}
+.nav-button:not(:disabled):hover {
+  background: rgba(51, 65, 85, 0.9);
+  transform: translateY(-2px);
+}
+.nav-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Estilo específico para el botón "Siguiente" */
+.nav-button.next {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+.nav-button.next:not(:disabled):hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+}
+
+/* Estilo para cuando la lección está completada */
+.nav-button.next.completed {
+    background: #10b981; /* Verde de completado */
+    border-color: #10b981;
+}
+.nav-button.next.completed:not(:disabled):hover {
+    background: #34d399;
+}
+/*conmmonVideoplayer Stylos*/
+/* ============================================================== */
+/* ===   ESTILOS FINALES PARA AULA VIRTUAL Y VIDEOPLAYER      === */
+/* ===         (REEMPLAZAR CUALQUIER VERSIÓN ANTERIOR)         === */
+/* ============================================================== */
+
+/* El layout principal del aula, ocupa todo el espacio. */
+.classroom-main-content {
+  position: relative; /* Contexto para todo lo demás */
+  flex-grow: 1;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* El contenedor que aloja el VideoPlayer */
+.video-background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* El contenedor RESPONSIVO dentro del VideoPlayer */
+.video-player-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 0; /* Lo reiniciamos porque su padre ya le da altura */
+}
+
+/* El IFRAME flexible */
+.video-player-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* El mensaje cuando no hay video */
+.video-placeholder-message {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  color: #9ca3af; text-align: center; padding: 1rem;
+}
+
+/* Degradado para legibilidad del texto sobre el video */
+.classroom-overlay-gradient {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.7) 100%);
+}
+
+/* Contenedor de todos los controles superpuestos */
+.classroom-controls-container {
+  position: relative; z-index: 10; width: 100%; height: 100%;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 1.5rem 2rem; color: white;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.4s ease;
+}
+/* Al pasar el mouse sobre toda el aula, se muestran los controles */
+.classroom-main-content:hover .classroom-controls-container {
+  opacity: 1;
+}
+
+/* Header (Botón y título de curso) */
+.classroom-header {
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.sidebar-toggle-button {
+  background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2);
+  color: white; padding: 0.8rem; border-radius: 50%; font-size: 1.2rem;
+  display: grid; place-items: center; cursor: pointer; transition: all 0.2s ease;
+}
+.sidebar-toggle-button:hover { background: rgba(51, 65, 85, 0.9); transform: scale(1.1); }
+.course-title-header span { font-size: 0.8rem; color: #9ca3af; }
+.course-title-header h3 { font-weight: 600; font-size: 1rem; }
+
+/* Footer (Título lección y botones) */
+.classroom-footer {
+  /* No necesita opacity ni transform aquí porque el contenedor padre ya lo tiene */
+}
+.lesson-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 700;
+  margin-bottom: 1rem; text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+.navigation-buttons { display: flex; justify-content: space-between; align-items: center; }
+.nav-button {
+  display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; font-weight: 600;
+  font-size: 0.95rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer; background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(5px);
+  color: white; transition: all 0.2s ease;
+}
+.nav-button:not(:disabled):hover { background: rgba(51, 65, 85, 0.9); transform: translateY(-2px); }
+.nav-button:disabled { opacity: 0.4; cursor: not-allowed; }
+.nav-button.next { background: var(--color-primary-dark); border-color: transparent; }
+.nav-button.next:not(:disabled):hover { background: var(--color-primary-light); box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3); }
+.nav-button.next.completed { background: #10b981; }
+.nav-button.next.completed:not(:disabled):hover { background: #34d399; }
+/*otro*/
+/* =================================== */
+/* == Estilos para el Botón y Flecha ==*/
+/* =================================== */
+
+/* 
+  Contenedor para el botón de acción principal y la flecha.
+  Esto asegura que ambos elementos estén agrupados, centrados 
+  y con un espacio vertical entre ellos.
+*/
+.hero-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px; /* Aumenta el espacio entre el botón y la flecha */
+  margin-top: 1rem; /* Margen superior para separarlo del subtítulo */
+}
+
+/* 
+  Estilo para el indicador de scroll (la flecha).
+  Aquí definimos el tamaño y color del icono. La animación
+  se controla directamente con framer-motion en el componente JSX.
+*/
+.scroll-down-indicator {
+  /* No se necesita la propiedad animation aquí, framer-motion lo maneja */
+  color: rgba(255, 255, 255, 0.8); /* Blanco con ligera transparencia */
+  font-size: 2.2rem; /* Tamaño del icono de la flecha */
+}
+/* ======================================= */
+/* == Estilos del Hero con Imagen Fondo == */
+/* ======================================= */
+
+/* 
+  1. Aplicamos la imagen de fondo al contenedor principal del Hero.
+  Cambiamos el 'background-color' por un 'background-image'.
+  IMPORTANTE: Reemplaza la URL de abajo con la URL de la imagen que quieras usar.
+  He usado una imagen de Pexels como ejemplo que encaja con la temática.
+*/
+.hero-section.epic {
+  background-image: url('https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover; /* La imagen cubre todo el área sin deformarse */
+  background-position: center; /* La imagen se centra en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita si es pequeña */
+  position: relative; /* Necesario para que el z-index del overlay funcione */
+}
+
+/* 
+  2. Ajustamos la superposición de color.
+  Este div ahora se colocará POR ENCIMA de la imagen de fondo pero POR DEBAJO del texto y los cuadraditos.
+  Su función es oscurecer la imagen para que el contenido sea legible.
+*/
+.hero-background-overlay {
+  background-color: rgba(6, 11, 22, 0.80); /* Negro-azulado muy oscuro con 80% de opacidad */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Se posiciona encima del fondo pero debajo del resto */
+}
+
+/* 
+  3. Aseguramos que el contenido y las formas animadas queden al frente.
+  Al darles una posición relativa y un z-index mayor, nos garantizamos
+  que se mostrarán por encima de la capa de superposición oscura.
+*/
+.hero-content,
+.hero-bg-shapes {
+  position: relative;
+  z-index: 2; /* Se coloca por encima del overlay (z-index: 1) */
+}
+/* ======================================= */
+/* ==   Estilos para la Grilla de Cursos  == */
+/* ======================================= */
+
+/*
+  Esta es la regla clave que define la cuadrícula.
+  Le dice al contenedor que organice a sus hijos en una grilla.
+*/
+.course-grid {
+  display: grid;
+
+  /*
+    Esta es la magia de la responsividad.
+    - repeat(): Crea columnas que se repiten.
+    - auto-fit: Llena el espacio con tantas columnas como quepan.
+    - minmax(300px, 1fr): Cada columna tendrá un ancho MÍNIMO de 300px y un
+      ancho MÁXIMO de una fracción (1fr) del espacio disponible.
+    En la práctica, esto crea de 1 a 4 columnas dependiendo del ancho de la pantalla.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  /* 
+    Añade un espacio consistente y elegante entre las tarjetas de los cursos, 
+    tanto horizontal como verticalmente.
+  */
+  gap: 2rem;
+  
+  /* 
+    Añade un margen superior para separar la grilla del subtítulo.
+  */
+  margin-top: 3rem;
+}
+/* En tu archivo .css */
+
+.created-by-label {
+  color: #8A92A2;  /* Un color gris suave y profesional */
+  margin-right: 6px; /* Añade un pequeño espacio a la derecha */
+  font-weight: 500;  /* Un grosor de fuente medio */
+}
+
+/* Opcional: Dale un estilo al link del instructor también */
+.instructor-link {
+  color: #3B82F6; /* Un color azul vibrante */
+  font-weight: 600; /* Un poco más de grosor */
+  text-decoration: none;
+}
+
+.instructor-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+/*feeeeerfrefnerjkfnejfnek*/
+/*feeeeerfrefnerjkfnejfnek*/
+/*feeeeerfrefnerjkfnejfnek*/
+/*feVENTANA EMERGENTE DERECHAejfnek*/
+/*feeeeerfrefnerjkfnejfnek*/
+/*feeeeerfrefnerjkfnejfnek*/
+/* ===============================================================
+   ESTILOS PARA EL BOTÓN DEL CARRITO EN EL NAVBAR
+   (Asegúrate de que esto esté en tu App.css)
+   =============================================================== */
+
+/* Modificamos navbar-actions para que tenga buen espacio */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espacio entre el carrito y los otros botones */
+}
+
+.cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem; /* Tamaño del ícono */
+    color: var(--color-text-secondary); /* Usa tus variables de color existentes */
+    position: relative;
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+
+.cart-button:hover {
+    color: var(--color-primary); /* Color al pasar el ratón */
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-danger, #d73a49); /* Usa la variable de error si existe */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Para que no interfiera con el clic del botón */
+}
+/* ==========================================================================
+   ESTILOS PARA EL SIDE-CART (CARRITO DESLIZABLE)
+   ========================================================================== */
+
+/* Este es el contenedor principal que cubre toda la pantalla */
+.cart-sidebar-container {
+    position: fixed; /* <-- ESTA ES LA PROPIEDAD MÁS IMPORTANTE */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    display: flex; /* Ayuda a posicionar el panel deslizable */
+    justify-content: flex-end; /* Alinea el panel a la derecha */
+    pointer-events: none; /* Permite hacer clic "a través" de él cuando está invisible */
+}
+
+/* El fondo oscuro semitransparente */
+.cart-overlay {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: auto; /* El overlay SÍ debe ser clickeable para cerrarlo */
+}
+
+/* El panel blanco que se desliza */
+.cart-panel {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--color-surface, #fff);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1001;
+    pointer-events: auto; /* El panel también debe ser interactuable */
+    transform: translateX(100%); /* Estado inicial (oculto) para animación */
+}
+
+
+/* === ESTILOS VISUALES PARA EL CONTENIDO DEL CARRITO (Mantener si ya los tienes) === */
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+}
+.cart-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+.cart-close-button {
+    background: none; border: none; font-size: 1.5rem;
+    cursor: pointer; color: var(--color-text-secondary, #57606a);
+    transition: color 0.2s;
+}
+.cart-close-button:hover { color: var(--color-danger, #d73a49); }
+
+.cart-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+/* etc... el resto de estilos del carrito que ya te había pasado */
+/* ==========================================================================
+   ESTILOS PARA EL SIDE-CART (CARRITO DESLIZABLE) - VERSIÓN MEJORADA
+   ========================================================================== */
+
+/* Contenedor principal que cubre la pantalla */
+.cart-sidebar-container {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1000; display: flex; justify-content: flex-end;
+}
+
+/* Fondo oscuro semitransparente */
+.cart-overlay {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Un poco más oscuro para mejor contraste */
+}
+
+/* Panel blanco que se desliza */
+.cart-panel {
+    width: 100%; max-width: 450px; /* Un poco más ancho */
+    background-color: var(--color-background, #F8F9FA); /* Fondo ligeramente gris */
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    display: flex; flex-direction: column; position: relative;
+    z-index: 1001;
+}
+
+/* --- Cabecera del Carrito --- */
+.cart-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+    background-color: var(--color-surface, #fff);
+}
+.cart-header h3 { margin: 0; font-size: 1.25rem; }
+.cart-close-button {
+    background: none; border: none; font-size: 1.5rem; cursor: pointer;
+    color: var(--color-text-secondary, #57606a); transition: all 0.2s;
+}
+.cart-close-button:hover { color: var(--color-danger, #d73a49); transform: rotate(90deg); }
+
+/* --- Contenido y Lista de Items --- */
+.cart-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Permite scroll si hay muchos items */
+    padding: 1.5rem;
+}
+.cart-items-list {
+    display: flex; flex-direction: column;
+    gap: 1.25rem; /* Espacio entre las tarjetas de los cursos */
+}
+
+/* --- LA TARJETA DEL "CUADRADITO" PARA CADA CURSO --- */
+.cart-item-card {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--color-surface, #fff);
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+.cart-item-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image-container {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+    border-radius: 6px;
+    overflow: hidden;
+}
+.cart-item-image-container img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el precio/botón hacia abajo */
+}
+
+.cart-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    /* Evita que el texto se desborde si es muy largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-item-instructor {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary, #57606a);
+    margin: 0.25rem 0 0 0;
+}
+
+.cart-item-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.cart-item-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.cart-item-remove-btn {
+    background: none; border: 1px solid transparent; border-radius: 50%;
+    color: var(--color-text-secondary, #57606a);
+    cursor: pointer; padding: 0.5rem; display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    transition: all 0.2s ease;
+}
+.cart-item-remove-btn:hover {
+    background-color: rgba(215, 58, 73, 0.1); /* Fondo rojo claro */
+    color: var(--color-danger, #d73a49);
+}
+.cart-item-remove-btn:disabled {
+    cursor: not-allowed;
+    color: #999;
+}
+
+
+/* --- Mensajes de estado (Vacío/Cargando) --- */
+.cart-state-message {
+    text-align: center; padding: 4rem 1rem;
+    color: var(--color-text-secondary, #57606a);
+}
+.cart-state-message .icon-large { font-size: 4rem; margin-bottom: 1rem; opacity: 0.5; }
+.cart-state-message .icon-spin { animation: spin 1.5s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* --- Footer del carrito (Total y Botón) --- */
+.cart-footer {
+    padding: 1.5rem; border-top: 1px solid var(--color-border, #e1e4e8);
+    background-color: var(--color-surface, #fff);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+}
+.cart-total {
+    display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;
+}
+.checkout-button {
+    width: 100%; padding: 1rem; background-color: var(--color-primary); color: white;
+    border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+    transition: background-color 0.2s;
+}
+.checkout-button:hover { background-color: var(--color-primary-dark); }
+/* ==========================================================================
+   ESTILOS PARA EL SIDE-CART - REFINADOS PARA ITEMS MÁS PEQUEÑOS
+   ========================================================================== */
+
+/* Contenedor principal (sin cambios) */
+.cart-sidebar-container {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1000; display: flex; justify-content: flex-end;
+}
+.cart-overlay {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.cart-panel {
+    width: 100%; max-width: 420px;
+    background-color: #f8f9fa; /* Fondo gris claro */
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    display: flex; flex-direction: column;
+    position: relative; z-index: 1001;
+}
+
+/* --- Cabecera del Carrito (sin cambios) --- */
+.cart-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.5rem; border-bottom: 1px solid #dee2e6;
+    background-color: #fff;
+}
+.cart-header h3 { margin: 0; font-size: 1.25rem; }
+.cart-close-button {
+    background: none; border: none; font-size: 1.5rem;
+    cursor: pointer; color: #6c757d; transition: all 0.2s;
+}
+.cart-close-button:hover { color: #d73a49; transform: rotate(90deg); }
+
+/* --- Contenido del Carrito --- */
+.cart-content {
+    flex-grow: 1; overflow-y: auto; padding: 1.5rem;
+}
+
+/* ============================================================= */
+/* --- ESTILOS MEJORADOS PARA CADA ITEM DEL CARRITO (AQUÍ ESTÁ LA MAGIA) --- */
+/* ============================================================= */
+
+.cart-items-list {
+    display: flex; flex-direction: column;
+    gap: 1rem; /* Espacio entre los items */
+}
+
+/* El contenedor principal de cada item */
+.cart-item {
+    display: flex; /* La clave para alinear todo horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 1rem; /* Espacio entre la imagen, los detalles y el botón */
+    background-color: #fff;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+/* --- ESTILOS PARA MINIMIZAR LA IMAGEN --- */
+.cart-item-image {
+    width: 64px;       /* Ancho fijo y pequeño */
+    height: 64px;      /* Alto fijo y pequeño */
+    object-fit: cover; /* Asegura que la imagen no se deforme, solo se recorta */
+    border-radius: 6px;/* Bordes redondeados */
+    flex-shrink: 0;    /* Impide que la imagen se encoja */
+}
+
+/* Contenedor para la información del curso */
+.cart-item-details {
+    flex-grow: 1; /* Hace que esta sección ocupe todo el espacio disponible */
+    min-width: 0; /* Previene desbordamiento en contenedores flex */
+}
+
+.cart-item-title {
+    font-size: 0.95rem; font-weight: 600; line-height: 1.3;
+    margin: 0 0 0.25rem 0;
+    /* Truco para cortar el texto si es muy largo (opcional pero recomendado) */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-item-instructor {
+    font-size: 0.8rem; color: #6c757d; margin: 0 0 0.25rem 0;
+}
+
+.cart-item-price {
+    font-size: 1rem; font-weight: 700; color: #5a48e3; /* Color primario */
+    margin: 0;
+}
+
+/* Botón para eliminar */
+.cart-item-remove-button {
+    background: none; border: none; color: #6c757d; cursor: pointer;
+    padding: 0.5rem; transition: color 0.2s;
+    margin-left: auto; /* Empuja el botón a la derecha (alternativa a gap si hay problemas) */
+}
+.cart-item-remove-button:hover {
+    color: #d73a49; /* Color rojo al pasar el ratón */
+}
+
+/* ================================================================== */
+
+/* --- Mensajes de estado (Vacío/Cargando) y Footer --- (Sin cambios) */
+.cart-state-message { text-align: center; padding: 4rem 1rem; color: #6c757d; }
+.cart-state-message .icon-large { font-size: 4rem; margin-bottom: 1rem; opacity: 0.5; }
+.cart-state-message .icon-spin { animation: spin 1.5s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.cart-footer { padding: 1.5rem; border-top: 1px solid #dee2e6; background-color: #fff; box-shadow: 0 -4px 10px rgba(0,0,0,0.03); }
+.cart-total { display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; }
+.checkout-button { width: 100%; padding: 1rem; background-color: #5a48e3; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s; }
+.checkout-button:hover { background-color: #473aa4; }
+/* ==========================================================
+   ESTILOS PARA LA NUEVA PÁGINA DE LOGIN (DISEÑO OSCURO V2)
+   ========================================================== */
+.login-v2-page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-image: url('https://www.utp.edu.pe/web/sites/default/files/hero-banner/banner-ingenierias.webp');
+    background-repeat: no-repeat;         /* <- evita que se repita */
+    background-size: cover;               /* <- ajusta para que ocupe toda la pantalla */
+    background-position: center;          /* <- centra la imagen */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.login-v2-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Proporción entre el form y el panel de bienvenida */
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* --- Panel Izquierdo: Formulario --- */
+.login-v2-form-panel {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #0a0a0a;
+}
+.login-v2-header { text-align: center; margin-bottom: 2.5rem; }
+.login-v2-logo { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: #4ec29b; letter-spacing: 2px; }
+.login-v2-header h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+.login-v2-header p { color: #000000; }
+
+.login-v2-form { width: 100%; }
+.login-v2-input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.login-v2-input-group .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8e9aaf;
+}
+.login-v2-input-group input {
+    width: 95%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    border: 1px solid #3d3d6b;
+    border-radius: 8px;
+    background-color: #252540;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+.login-v2-input-group input::placeholder { color: #8e9aaf; }
+.login-v2-input-group input:focus {
+    outline: none;
+    border-color: #f8268f;
+    box-shadow: 0 0 0 3px rgba(248, 38, 143, 0.2);
+}
+
+.login-v2-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #8e9aaf;
+}
+.login-v2-options a {
+    color: #8e9aaf;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.login-v2-options a:hover { color: #f8268f; }
+.login-v2-options .remember-me { display: flex; align-items: center; gap: 0.5rem; }
+.login-v2-options input[type="checkbox"] {
+  accent-color: #f8268f;
+}
+
+.login-v2-main-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f8268f, #9434e3);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.login-v2-main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(46, 46, 46, 0.2);
+}
+
+.login-v2-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: #8e9aaf;
+}
+.login-v2-divider::before, .login-v2-divider::after {
+    content: ''; flex: 1; border-bottom: 1px solid #3d3d6b;
+}
+.login-v2-divider:not(:empty)::before { margin-right: .5em; }
+.login-v2-divider:not(:empty)::after { margin-left: .5em; }
+
+.login-v2-social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #3d3d6b;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #8e9aaf;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.social-icon-btn:hover {
+    background-color: #252540;
+    border-color: #fff;
+    color: #fff;
+}
+.social-icon-btn.google:hover { border-color: #4285F4; color: #4285F4; }
+.social-icon-btn.facebook:hover { border-color: #1877F2; color: #1877F2; }
+.social-icon-btn.github:hover { border-color: #fff; color: #fff; }
+
+.login-v2-signup-link { text-align: center; margin-top: 2.5rem; color: #8e9aaf; }
+.login-v2-signup-link a { color: #f8268f; text-decoration: none; font-weight: 600; }
+
+
+/* --- Panel Derecho: Bienvenida --- */
+.login-v2-welcome-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    position: relative;
+    background-color: #22223a;
+    overflow: hidden; /* para el gradiente */
+}
+/* Efecto de fondo de gradiente */
+.login-v2-welcome-panel::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -50%;
+    width: 200%; height: 200%;
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(148, 52, 227, 0.4), transparent 40%),
+      radial-gradient(circle at 20% 80%, rgba(248, 38, 143, 0.4), transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(68, 120, 255, 0.2), transparent 40%);
+    animation: gradient-flow 15s ease-in-out infinite;
+}
+
+@keyframes gradient-flow {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: #fff;
+}
+.welcome-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+.welcome-content p {
+    font-size: 1.1rem;
+    max-width: 400px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive para tabletas y móviles */
+@media (max-width: 992px) {
+    .login-v2-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .login-v2-welcome-panel {
+        display: none; /* Ocultamos el panel visual en pantallas pequeñas */
+    }
+    .login-v2-form-panel {
+        padding: 2rem;
+    }
+}
+/* ==========================================================
+   NUEVOS ESTILOS PROFESIONALES PARA LA PÁGINA DE PERFIL
+   ========================================================== */
+
+/* --- Contenedor Principal de la Página --- */
+.profile-page-wrapper {
+    padding: 2rem;
+    background-color: var(--color-background, #F8F9FA); /* Fondo de página gris claro */
+    min-height: calc(100vh - 80px); /* Ocupa el alto de la pantalla menos el navbar (aprox) */
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espacio entre secciones (banner, grid, logout) */
+}
+
+/* --- 1. Banner Superior del Perfil --- */
+.profile-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--color-surface, #fff);
+    border-radius: 12px;
+    border: 1px solid var(--color-border, #e1e4e8);
+}
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.fallback-avatar-icon {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    background-color: #e9ecef;
+    color: #adb5bd;
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+.profile-email {
+    font-size: 1rem;
+    color: var(--color-text-secondary, #6c757d);
+}
+.profile-admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    background-color: #FFFBEB;
+    color: #B45309;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+/* --- 2. Grid de Información y Acciones --- */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta de Información */
+.profile-info-card {
+    background: var(--color-surface, #fff);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+}
+.profile-info-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+}
+.profile-info-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+.profile-info-card li { display: flex; align-items: flex-start; gap: 1rem; }
+.profile-info-card li svg {
+    color: var(--color-text-secondary, #6c757d);
+    font-size: 1.25rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+.profile-info-card li span { display: block; font-size: 0.9rem; color: #6c757d; }
+.profile-info-card li p { font-size: 1rem; font-weight: 500; margin: 0.1rem 0 0 0; }
+
+/* Tarjetas de Acción Rápida */
+.profile-actions-container {
+    background: transparent;
+}
+.profile-actions-container h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; }
+.profile-action-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-surface, #fff);
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--color-text, #212529);
+    transition: all 0.2s ease-in-out;
+}
+.profile-action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-primary, #007bff);
+}
+.action-card-icon {
+    font-size: 1.8rem;
+    color: var(--color-primary, #007bff);
+    background: rgba(0, 123, 255, 0.1);
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action-card-text h4 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem 0; }
+.action-card-text p { font-size: 0.9rem; margin: 0; color: #6c757d; }
+
+
+/* --- 3. Sección de Cerrar Sesión --- */
+.profile-logout-section {
+    padding: 1.5rem;
+    background: #FFFBEB; /* Un fondo de alerta sutil */
+    border: 1px solid #FEF2F2;
+    border-left: 4px solid var(--color-danger, #ef4444);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-logout-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-danger, #ef4444);
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.profile-logout-button:hover { background-color: #dc2626; }
+/* ========================================================================
+   ESTILOS ADICIONALES PARA LA HOMEPAGE (COMPATIBLES)
+   ======================================================================== */
+
+/* --- Nueva Sección: Disciplinas de Ingeniería --- */
+.engineering-disciplines-section {
+    padding: 6rem 2rem;
+    background-color: #f8f9fa; /* Un fondo ligeramente gris para separar secciones */
+    text-align: center;
+}
+
+.disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto 0 auto;
+}
+
+.discipline-card {
+    background-color: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+.discipline-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-color: var(--color-primary, #5a48e3);
+}
+
+.discipline-icon {
+    font-size: 3rem;
+    color: var(--color-primary, #5a48e3);
+    margin-bottom: 1.5rem;
+}
+
+.discipline-icon svg { /* para iconos de material-ui */
+    font-size: 40px !important;
+}
+
+.discipline-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.discipline-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+/* Ajustes a los testimonios para tener 3 columnas si hay espacio */
+@media (min-width: 1024px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
